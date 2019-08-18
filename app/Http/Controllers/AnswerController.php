@@ -78,6 +78,7 @@ class AnswerController extends Controller
         return view('Homework.indexAnswer', [
             'item' => $item,
             'param' => $param,
+            'exist' => $item->isEmpty(),
             ]);
     }
 

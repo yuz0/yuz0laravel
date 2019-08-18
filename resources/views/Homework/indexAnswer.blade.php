@@ -68,7 +68,6 @@
                         <th class = "feedback">内容</th>
                     </tr>
                     @foreach($item as $item_value)
-                        @if(isset($item_value))
                         <tr>
                             <th class = "delete">
                                 <input type="checkbox" name = "delete[]" value = "{{$item_value->id}}"
@@ -98,11 +97,13 @@
                             </td>
                             <th><button onclick="location.href='/homework/system/answer/{{$item_value->id}}'">詳細</button></th>
                         </tr>
-                        @else
-                        <th>該当するアンケートはありません</th>
-                        @endif
                     @endforeach
                 </table>
+                @isset($exist)
+                    @if($exist)
+                        <tr>該当するアンケートはありません</tr>
+                    @endif
+                @endisset
             </div>
         </div>
     @endsection
